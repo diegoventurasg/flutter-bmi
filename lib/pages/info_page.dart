@@ -17,7 +17,7 @@ class InfoPage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 30),
           width: 400,
           child: ListView(
             children: const [

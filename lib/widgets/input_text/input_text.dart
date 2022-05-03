@@ -13,6 +13,7 @@ class InputText extends StatelessWidget {
     this.inputFormatters,
     this.keyboardType,
     this.controller,
+    this.onSubmitted,
   }) : super(key: key);
 
   final String label;
@@ -22,6 +23,7 @@ class InputText extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final void Function()? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class InputText extends StatelessWidget {
         inputFormatters: inputFormatters,
         controller: controller,
         onChanged: onChanged,
-        textInputAction: TextInputAction.next,
+        textInputAction: onSubmitted == null ? TextInputAction.next : null,
+        onFieldSubmitted: onSubmitted != null ? (v) => onSubmitted!() : null,
         validator: (value) =>
             validator != null ? validator!(value ?? "") : null,
         style: AppTextStyles.input,

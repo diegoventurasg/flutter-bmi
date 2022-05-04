@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: controller.bmi['color'],
       body: Observer(builder: (_) {
         return Container(
           color: controller.bmi['color'],
